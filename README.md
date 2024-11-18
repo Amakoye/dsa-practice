@@ -63,10 +63,16 @@ dsa-practice/
 
 - [ ] Linked Lists
 - [ ] Arrays & Strings
-- [ ] Stacks & Queues
-- [ ] Trees & Graphs
+- [ ] Stacks
+- [ ] Two Pointers
+- [ ] Binary Search
+- [ ] Sliding Window
+- [ ] Queues
+- [ ] Sorting
+- [ ] Searching
+- [ ] Trees
+- [ ] Graphs
 - [ ] Dynamic Programming
-- [ ] Sorting & Searching
 - [ ] Advanced Algorithms
 
 ## 🤝 How to Contribute
