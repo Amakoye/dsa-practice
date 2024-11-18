@@ -48,15 +48,13 @@ This repository documents my journey through various Data Structures and Algorit
 ```
 dsa-practice/
 ├── README.md
-├── arrays/
-│   ├── README.md
-│   ├── implementations/
-│   └── practice-problems/
-├── linked-lists/
-│   ├── README.md
-│   ├── implementations/
-│   └── practice-problems/
-└── ... (other topics)
+├── linked-lists/                  # Current topic
+│   ├── README.md                 # Topic overview and notes
+│   ├── implementations/          # Code implementations
+│   │   ├── python/              # Python solutions
+│   │   └── typescript/          # TypeScript solutions
+│   └── practice-problems/       # Practice problems and solutions
+└── ... (similar structure for other topics)
 ```
 
 ## ✅ Learning Progress
