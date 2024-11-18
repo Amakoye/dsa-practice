@@ -61,8 +61,8 @@ dsa-practice/
 
 ## ✅ Learning Progress
 
-- [] Linked Lists
-- [] Arrays & Strings
+- [ ] Linked Lists
+- [ ] Arrays & Strings
 - [ ] Stacks & Queues
 - [ ] Trees & Graphs
 - [ ] Dynamic Programming
