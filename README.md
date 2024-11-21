@@ -39,7 +39,7 @@ This repository documents my journey through various Data Structures and Algorit
 
 - [Linked Lists](./linked-lists/README.md)
 
-  - Singly Linked
+  - [Singly Linked](./linked-lists/implementations/python/singly_linked_list.py)
   - Doubly Linked
   - Fast & Slow Pointers
 
