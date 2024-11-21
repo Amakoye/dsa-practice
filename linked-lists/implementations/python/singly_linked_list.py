@@ -63,3 +63,31 @@ class LinkedList:
             current = current.next
 
         current.next = new_node
+
+    def print_list(self)->None:
+        """
+        Prints the values in the linked list, helping with understanding traversal
+
+        Raises:
+            Exception: If list is empty
+
+        Example output:
+            0->1->2->3->None
+        """
+
+        if self.head is None:
+            raise ValueError("Linked list is empty")
+            
+
+        current = self.head
+
+        while current:
+            print(current.val, end='->')
+            current = current.next
+
+        print("None")
+
+
+    
+
+        
