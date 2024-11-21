@@ -11,7 +11,7 @@ class LinkedList:
     to the next.
 
     Operations.
-    - Insertion at Head
+    - Insertion at Head/Beginning
     - Insertion at Tail
     - Traversal
     - Delete at Head
@@ -30,3 +30,14 @@ class LinkedList:
                 the list is initialized as empty.
         """
         self.head = head
+
+
+    def prepend(self, val:int)->None:
+        """
+        Inserts a node at the beginning. The node is treated as the head.
+
+        Args:
+            val (int): Represents the value/data to be stored in the node.
+        """
+        new_node = Node(val, self.head)
+        self.head = new_node
