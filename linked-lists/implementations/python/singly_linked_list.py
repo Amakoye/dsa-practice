@@ -88,6 +88,38 @@ class LinkedList:
         print("None")
 
 
+    def delete(self, val:int)->None:
+        """
+        Deletes the first occurrence of a node with the given value.
+
+        Args:
+            val (int): Value of the node to be deleted..
+        """
+
+        # Handle edge case: if the list is empty
+        if self.head is None:
+            raise ValueError("Cannot complete delete operation. Linked list is empty!") 
+
+        # If the node to be deleted is head
+        if self.head.val == val:
+            self.head = self.head.next
+            print(f'Node ({val}) deleted successfully.')
+            return
+
+        # Traverse the list to find the node to delete
+        current = self.head
+        while current.next:
+            if current.next.val == val:
+                current.next = current.next.next
+                print(f'Node ({val}) deleted successfully.')
+                return
+
+            current = current.next
+        # Node not found
+        raise ValueError(f'Node ({val}) Not found!')
+        
+
+
     
 
         
