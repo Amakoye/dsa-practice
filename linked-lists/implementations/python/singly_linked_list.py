@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Union
 from linked_list_nodes import Node
 
 
@@ -66,10 +66,10 @@ class LinkedList:
 
     def print_list(self)->None:
         """
-        Prints the values in the linked list, helping with understanding traversal
+        Prints the values in the linked list, helping with understanding traversal.
 
         Raises:
-            Exception: If list is empty
+            Exception: If list is empty.
 
         Example output:
             0->1->2->3->None
@@ -87,13 +87,54 @@ class LinkedList:
 
         print("None")
 
+    def search(self, val:int, return_index:bool=False)->Union[bool, int]:
+
+             
+        """
+        Finds the first occurence of a node by given value.
+
+        Args:
+            val (int): Value of the node to be searched.
+            return_index (bool, optional): Whether to return the index instead of a boolean.
+
+
+        Raises:
+            ValueError: If the list is empty
+
+        Returns:
+            Union[bool, int]: Boolean indicating presence or index of the value
+        """
+
+        # Handle edge case: if the list is empty
+        if self.head is None:
+            raise ValueError("Linked list is empty")
+
+        # If the node we're looking for is the head
+        if self.head.val == val:
+            return 0 if return_index else True
+
+        # Traverse through list to find the node
+        current = self.head
+        index = 0
+
+        while current:
+            index+=1
+            if current.val == val:
+                return index if return_index else True
+            current = current.next
+
+        return -1 if return_index else False
+
 
     def delete(self, val:int)->None:
         """
-        Deletes the first occurrence of a node with the given value.
+         Deletes the first occurrence of a node with the given value.
 
         Args:
-            val (int): Value of the node to be deleted..
+            val (int): Value of the node to be deleted.
+
+        Raises:
+            ValueError: If the list is empty or the node is not found.
         """
 
         # Handle edge case: if the list is empty
