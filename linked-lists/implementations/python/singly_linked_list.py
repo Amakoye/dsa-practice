@@ -41,3 +41,25 @@ class LinkedList:
         """
         new_node = Node(val, self.head)
         self.head = new_node
+
+
+    def append(self, val:int)->None:
+        """
+        Adds a new node to the end of the of the list.
+
+        Args:
+            val (int): Represents the value/data to be stored in the node.
+        """
+        current = self.head
+        new_node = Node(val)
+
+        # Handle edge case, if list is empty set the new node as the head
+        if self.head is None:
+            self.head = new_node
+            return
+
+        # Traverse to the end of the list
+        while current.next:
+            current = current.next
+
+        current.next = new_node
