@@ -159,7 +159,87 @@ class LinkedList:
         # Node not found
         raise ValueError(f'Node ({val}) Not found!')
         
+    def insert_at(self, val:int, pos:int)->None:
+        """
+        Adds a node at a given position or index.
 
+        Args:
+            val (int): Represents the value/data to be stored in the node.
+            pos (int): Represents the index/position where the node should be inserted.
+
+        Raises:
+            ValueError: If position is invalid/out of range or list is empty.
+        """
+        new_node  = Node(val)
+
+        # Handle edge case: negative index/pos
+        if pos < 0:
+            raise ValueError("Index or posistion cannot be negative")
+      
+        # Handle edge case: if List is empty and pos is greater than 0
+        if self.head is None:
+            raise ValueError("Cannot insert at position greater than 0 in an empty list")
+
+        # Handle edge case: insert at the beginning, when pos=0
+        if pos == 0:
+            new_node.next = self.head
+            self.head= new_node
+
+        # Otherwise, Traverse to find the node before the pos/index
+        current = self.head
+        count = 0
+
+        while current and count < pos-1:
+            current = current.next
+            count+=1
+
+        # Handle edge case: check if index is out of range and current is none
+        if current is None:
+            raise ValueError(f"Cannot insert at position {pos}. Index is out of range!")
+
+        new_node.next = current.next
+        current.next = new_node
+
+    def delete_at(self,  pos:int)->None:
+        """
+        Deletes a node at a given position/index.
+
+        Args:
+            pos (int): Represents the index/position of the node to be deleted.
+
+        Raises:
+            ValueError: If position is invalid/out of range or list is empty.
+        """
+        # Handle edge case: negative index/pos
+        if pos < 0:
+            raise ValueError("Index or posistion cannot be negative.")
+
+        
+        # Handle edge case: if List is empty and pos is greater than 0
+        if self.head is None:
+            raise ValueError("Cannot complete delete operation. Linked list is empty!")
+
+        # Handle edge case: delete at the beginning, when pos=0,
+        if pos == 0:
+            self.head=self.head.next
+            return
+
+        # Traverse the list to find the node before the index
+        current = self.head
+        count = 0
+
+        while current and count < pos-1:
+            current = current.next
+            count +=1
+        
+        # Handle edge case: check if index is out of range and current is none
+        if current is None or current.next is None:
+            raise ValueError(f"Cannot delete Node at position {pos}. Index is out of range!")
+
+        current.next = current.next.next
+
+        
+            
 
     
 
