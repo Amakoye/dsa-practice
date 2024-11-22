@@ -20,3 +20,5 @@ class SinglyLinkedNode<T> {
     this.next = next;
   }
 }
+
+export { SinglyLinkedNode };
