@@ -1,8 +1,8 @@
-from typing import Optional, Union
-from linked_list_nodes import Node
+from typing import Optional, Union, Generic
+from linked_list_nodes import T, Node
 
 
-class LinkedList:
+class LinkedList(Generic[T]):
     """
     Represents a singly linked list data structure.
 
@@ -32,23 +32,23 @@ class LinkedList:
         self.head = head
 
 
-    def prepend(self, val:int)->None:
+    def prepend(self, val:T)->None:
         """
         Inserts a node at the beginning. The node is treated as the head.
 
         Args:
-            val (int): Represents the value/data to be stored in the node.
+            val (T): Represents the value/data to be stored in the node.
         """
         new_node = Node(val, self.head)
         self.head = new_node
 
 
-    def append(self, val:int)->None:
+    def append(self, val:T)->None:
         """
         Adds a new node to the end of the of the list.
 
         Args:
-            val (int): Represents the value/data to be stored in the node.
+            val (T): Represents the value/data to be stored in the node.
         """
         current = self.head
         new_node = Node(val)
@@ -87,14 +87,14 @@ class LinkedList:
 
         print("None")
 
-    def search(self, val:int, return_index:bool=False)->Union[bool, int]:
+    def search(self, val:T, return_index:bool=False)->Union[bool, T]:
 
              
         """
         Finds the first occurence of a node by given value.
 
         Args:
-            val (int): Value of the node to be searched.
+            val (T): Value of the node to be searched.
             return_index (bool, optional): Whether to return the index instead of a boolean.
 
 
@@ -102,7 +102,7 @@ class LinkedList:
             ValueError: If the list is empty
 
         Returns:
-            Union[bool, int]: Boolean indicating presence or index of the value
+            Union[bool, T]: Boolean indicating presence or index of the value
         """
 
         # Handle edge case: if the list is empty
@@ -126,12 +126,12 @@ class LinkedList:
         return -1 if return_index else False
 
 
-    def delete(self, val:int)->None:
+    def delete(self, val:T)->None:
         """
          Deletes the first occurrence of a node with the given value.
 
         Args:
-            val (int): Value of the node to be deleted.
+            val (T): Value of the node to be deleted.
 
         Raises:
             ValueError: If the list is empty or the node is not found.
@@ -159,13 +159,13 @@ class LinkedList:
         # Node not found
         raise ValueError(f'Node ({val}) Not found!')
         
-    def insert_at(self, val:int, pos:int)->None:
+    def insert_at(self, val:T, pos:T)->None:
         """
         Adds a node at a given position or index.
 
         Args:
-            val (int): Represents the value/data to be stored in the node.
-            pos (int): Represents the index/position where the node should be inserted.
+            val (T): Represents the value/data to be stored in the node.
+            pos (T): Represents the index/position where the node should be inserted.
 
         Raises:
             ValueError: If position is invalid/out of range or list is empty.
@@ -200,12 +200,12 @@ class LinkedList:
         new_node.next = current.next
         current.next = new_node
 
-    def delete_at(self,  pos:int)->None:
+    def delete_at(self,  pos:T)->None:
         """
         Deletes a node at a given position/index.
 
         Args:
-            pos (int): Represents the index/position of the node to be deleted.
+            pos (T): Represents the index/position of the node to be deleted.
 
         Raises:
             ValueError: If position is invalid/out of range or list is empty.

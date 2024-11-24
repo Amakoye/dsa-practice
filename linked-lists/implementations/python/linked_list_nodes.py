@@ -1,9 +1,15 @@
 
 
-from typing import Optional
+from typing import Optional, TypeVar, Generic
+#  ----------------------------------------------------------------------
+
+T = TypeVar("T")
+
+#  ----------------------------------------------------------------------
 
 
-class Node:
+
+class Node(Generic[T]):
     """
     A node in a linked list data structure.
 
@@ -12,12 +18,12 @@ class Node:
     Basically represents a node in a singly linked list data structure.
     """
  
-    def __init__(self, val:int=0, next:Optional['Node']=None) -> None:
+    def __init__(self, val:T, next:Optional['Node']=None) -> None:
         """
         Initializes a new node with the given value, and next node reference.
 
         Args:
-            val (int, optional): The value to be stored in the node. Defaults to 0.
+            val (int, optional): The value to be stored in the node.
             next (Optional['Node'], optional): A reference to the next node in the linked list. 
                 Defaults to None, indicating this node is the last in the list
         """

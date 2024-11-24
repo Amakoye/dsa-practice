@@ -5,7 +5,7 @@ from singly_linked_list import LinkedList
 Singly linked list example
 10->20->30->40->50->None
 """
-linked_list=  LinkedList()
+linked_list:LinkedList['int']=  LinkedList()
 
 linked_list.append(10)
 linked_list.append(20)
