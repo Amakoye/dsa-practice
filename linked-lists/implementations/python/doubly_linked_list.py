@@ -1,4 +1,4 @@
-from typing import Generic, Optional
+from typing import Generic, Optional, Union
 from linked_list_nodes import DoublyLinkedNode, T
 
 # --------------------------------------------------------------------------------------------------------------------------------------
@@ -94,7 +94,7 @@ class DoublyLinkedList(Generic[T]):
 
         # Handle edge case, if list is empty
         if self.head is None:
-            raise ValueError("Linked list is empty")
+            raise ValueError("Linked list is empty!")
 
         if reverse:
             current = self.tail
@@ -112,4 +112,38 @@ class DoublyLinkedList(Generic[T]):
                 print(f" -> {current.val}", end="")
                 current = current.next
             print("None", end="")
+    
+    def search(self, val:T, return_index:bool=False)->Union[bool, int]:
+        """
+        Finds the first occurence of a node by given value.
 
+        Args:
+            val (T): Value of the node to be searched.
+            return_index (bool, optional): Whether to return the index instead of a boolean.
+
+
+        Raises:
+            ValueError: If the list is empty
+
+        Returns:
+            Union[bool, T]: Boolean indicating presence or index of the value
+        """        
+        
+        # Handle edge case, if list is empty
+        if self.head is None:
+            raise ValueError("Linked list is empty!")
+
+     
+        current = self.head
+        count = 0
+
+        while current:
+            if  current.val == val:
+                return count if return_index else True
+            count +=1
+            current = current.next
+
+        return -1 if return_index else False
+
+
+    
