@@ -145,5 +145,52 @@ class DoublyLinkedList(Generic[T]):
 
         return -1 if return_index else False
 
+    def delete(self, val:T)->None:
+        """
+        Deletes the first occurrence of a node with the given value.
+
+        Args:
+            val (T): Value of the node to be deleted.
+
+        Raises:
+            ValueError: If the list is empty or the node is not found.
+        """        
+        # Handle edge case, if list is empty
+        if self.head is None:
+            raise ValueError("Linked list is empty!")
+
+        # If the node to be deleted is head
+        if self.head.val == val:
+            # if there's only one node
+            if self.head == self.tail:
+                self.head = None
+                self.tail = None
+
+            else:
+                self.head = self.head.next
+                self.head.prev = None
+            return
+        
+        current = self.head
+
+        # Traverse to find the node
+        while current and current.val != val:
+            current= current.next
+
+        # If item not found, current is none
+        if current is None:
+            raise ValueError("Item to be deleted not found!")
+
+        # If the node to be deleted is the tail
+        if self.tail.val == val and current==self.tail:
+            self.tail = self.tail.prev
+            self.tail.next = None
+            return
+
+
+        current.prev.next = current.next
+        current.next.prev = current.prev
+
+
 
     
