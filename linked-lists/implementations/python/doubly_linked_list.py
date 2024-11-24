@@ -1,0 +1,115 @@
+from typing import Generic, Optional
+from linked_list_nodes import DoublyLinkedNode, T
+
+# --------------------------------------------------------------------------------------------------------------------------------------
+
+class DoublyLinkedList(Generic[T]):
+    """
+    Represents a Doubly linked list data structure.
+
+    A Doubly linked list is a linear collection of nodes, where each node contains a value and a reference
+    to the next and previous node in the sequence. This allows for efficient traversal of the list in both directions.
+
+    Operations.
+    - Insertion at Head/Beginning
+    - Insertion at Tail
+    - Traversal
+    - Delete at Head
+    - Delete at Tail
+    - Insert at a given Position
+    - Delete at a given Position
+    - Search
+
+    Type Parameters:
+        T: The type of value stored in the node.
+    """
+
+    def __init__(self, head:Optional[DoublyLinkedNode[T]]=None) -> None:
+        """
+         Initializes a Doubly linked list with the given node as the head.
+
+        Args:
+            head (Optional[DoublyLinkedNode[T]], optional): he first node in the list. Defaults to None if not provided, and 
+                the list is initialized as empty.
+        """
+        self.head = head
+        self.tail = head
+
+    
+    def prepend(self, val:T)->None:
+        """
+        Inserts a node at the beginning. The node is treated as the head.
+
+        Args:
+            val (T): Represents the value/data to be stored in the node.
+        """
+        new_node = DoublyLinkedNode[T](val)
+
+        # Handle edge case if, list is empty.
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+            return 
+
+        new_node.next = self.head
+        self.head.prev = new_node
+
+        self.head = new_node
+        
+
+    def append(self, val:T)->None:
+        """
+        Inserts a node at the end. The node is treated as the tail.
+
+        Args:
+            val (T): Represents the value/data to be stored in the node.
+        """
+        new_node = DoublyLinkedNode[T](val)
+
+        # Handle edge case, if list is empty
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+            return
+
+        new_node.prev = self.tail
+        self.tail.next = new_node
+
+        self.tail = new_node
+        
+
+    def print_list(self, reverse:Optional[bool]=False)->None:
+
+        """
+        Prints the values in the linked list, helping with understanding traversal.
+        Supports both forward and reverse traversal.
+
+        Args:
+            reverse (Optional[bool]): If True, prints list from tail to head.
+                If False (default), prints list from head to tail.
+
+        Raises:
+            ValueError: If list is empty.
+        """
+
+        # Handle edge case, if list is empty
+        if self.head is None:
+            raise ValueError("Linked list is empty")
+
+        if reverse:
+            current = self.tail
+            print("None", end="")
+
+            while current:
+                print(f" <- {current.val}", end="")
+                current=current.prev
+            print("None", end="")
+        else:
+            current = self.head
+
+            print("None", end="")
+            while current:
+                print(f" -> {current.val}", end="")
+                current = current.next
+            print("None", end="")
+
