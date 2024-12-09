@@ -191,6 +191,61 @@ class DoublyLinkedList(Generic[T]):
         current.prev.next = current.next
         current.next.prev = current.prev
 
+    def insert_at(self, val: T, pos: int) -> None:
+        """
+        Adds a node at a given position or index.
 
+        Args:
+            val (T): Represents the value/data to be stored in the node.
+            pos (int): Represents the index/position where the node should be inserted.
 
-    
+        Raises:
+            ValueError: If position is invalid/out of range.
+        """
+        new_node = DoublyLinkedNode[T](val)
+
+        # Handle edge case: negative index
+        if pos < 0:
+            raise ValueError("Index or position cannot be negative")
+
+        # Handle insertion at the beginning (pos = 0)
+        if pos == 0:
+            if self.head is None:
+                self.head = new_node
+                self.tail = new_node
+            else:
+                new_node.next = self.head
+                self.head.prev = new_node
+                self.head = new_node
+            return
+
+        # Traverse to find the node before the position
+        current = self.head
+        count = 0
+
+        while current and count < pos - 1:
+            current = current.next
+            count += 1
+
+        # Handle out-of-range index
+        if current is None:
+            # Special case: inserting at the end
+            if count == pos - 1:
+                new_node.prev = self.tail
+                self.tail.next = new_node
+                self.tail = new_node
+                return
+            raise ValueError(f"Cannot insert at position {pos}. Index is out of range!")
+
+        # Standard insertion in the middle of the list
+        new_node.next = current.next
+        new_node.prev = current
+        
+        if current.next:
+            current.next.prev = new_node
+        current.next = new_node
+
+        # Update tail if inserting at the very end
+        if new_node.next is None:
+            self.tail = new_node
+            
