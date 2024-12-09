@@ -249,3 +249,58 @@ class DoublyLinkedList(Generic[T]):
         if new_node.next is None:
             self.tail = new_node
             
+
+    def delete_at(self, pos: int) -> None:
+        """
+        Deletes a node at a given position/index.
+
+        Args:
+            pos (int): Represents the index/position of the node to be deleted.
+
+        Raises:
+            ValueError: If position is invalid/out of range or list is empty.
+        """
+        # Handle edge case: negative index
+        if pos < 0:
+            raise ValueError("Index or position cannot be negative.")
+
+        # Handle edge case: empty list
+        if self.head is None:
+            raise ValueError("Cannot complete delete operation. Linked list is empty!")
+
+        # Handle deletion at the beginning (pos = 0)
+        if pos == 0:
+            # If there's only one node
+            if self.head == self.tail:
+                self.head = None
+                self.tail = None
+                return
+            
+            # More than one node
+            self.head = self.head.next
+            if self.head:
+                self.head.prev = None
+            return
+
+        # Traverse to find the node to delete
+        current = self.head
+        count = 0
+
+        while current and count < pos:
+            current = current.next
+            count += 1
+
+        # Check if index is out of range
+        if current is None:
+            raise ValueError(f"Cannot delete node at position {pos}. Index is out of range!")
+
+        # Handle deletion of the last node
+        if current == self.tail:
+            self.tail = current.prev
+            if self.tail:
+                self.tail.next = None
+            return
+
+        # Standard deletion in the middle of the list
+        current.prev.next = current.next
+        current.next.prev = current.prev
