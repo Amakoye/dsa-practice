@@ -40,8 +40,12 @@ This repository documents my journey through various Data Structures and Algorit
 - [Linked Lists](./linked-lists/README.md)
 
   - [Singly Linked](./linked-lists/implementations/python/singly_linked_list.py)
-  - Doubly Linked
-  - Fast & Slow Pointers
+  - [Doubly Linked](./linked-lists/implementations/python/doubly_linked_list.py)
+  - Techniques
+    - Sentinel/dummy nodes
+    - Two pointers
+    - Fast & Slow Pointers
+    - Using space
 
 ## 📁 Repository Structure
 
