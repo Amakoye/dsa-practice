@@ -3,8 +3,16 @@
 ## Overview
 
 A sentinel or dummy node is an extra node that acts as a placeholder or a guard to simplify certain operations
-It is not considered as part of the actual data structure but it is used to: 1. Avoid edge cases: - Operations like insertion or deletion at the head of the list often require special handling. The dummy node ensures that these operations can be performed uniformly,
-without extra checks for null or head references 2. Simplifying code: - It eliminates the need to check for special cases like an empty list, by ensuring there is always a node before the first element.
+It is not considered as part of the actual data structure but it is used to:
+
+#### 1. Avoid edge cases:
+
+- Operations like insertion or deletion at the head of the list often require special handling. The dummy node ensures that these operations can be performed uniformly,
+  without extra checks for null or head references
+
+#### 2. Simplifying code:
+
+- It eliminates the need to check for special cases like an empty list, by ensuring there is always a node before the first element.
 
 A sentinel node usually:
 
