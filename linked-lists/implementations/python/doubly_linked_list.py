@@ -98,18 +98,18 @@ class DoublyLinkedList(Generic[T]):
 
         if reverse:
             current = self.tail
-            print("None", end="")
+            print("None", end="<->")
 
             while current:
-                print(f" <- {current.val}", end="")
+                print(current.val, end="<->")
                 current=current.prev
             print("None", end="")
         else:
             current = self.head
 
-            print("None", end="")
+            print("None", end="<->")
             while current:
-                print(f" -> {current.val}", end="")
+                print(current.val, end="<->")
                 current = current.next
             print("None", end="")
     
