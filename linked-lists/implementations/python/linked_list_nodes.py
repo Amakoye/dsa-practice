@@ -18,7 +18,7 @@ class Node(Generic[T]):
     Basically represents a node in a singly linked list data structure.
     """
  
-    def __init__(self, val:T, next:Optional['Node']=None) -> None:
+    def __init__(self, val:Optional[T]=None, next:Optional['Node']=None) -> None:
         """
         Initializes a new node with the given value, and next node reference.
 

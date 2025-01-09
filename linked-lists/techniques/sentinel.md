@@ -128,4 +128,4 @@ A sentinel node typically has these characteristics:
 
 ## Implementation Reference
 
-For a complete implementation example, see: [singly_linked_list.py](singly_linked_list.py)
+For a complete implementation example, see: [singly_linked_list.py](../implementations/python/sentinel_linked_list.py)
