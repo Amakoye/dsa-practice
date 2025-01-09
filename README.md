@@ -43,8 +43,7 @@ This repository documents my journey through various Data Structures and Algorit
   - [Doubly Linked](./linked-lists/implementations/python/doubly_linked_list.py)
   - Techniques
     - [Sentinel/dummy nodes](./linked-lists/techniques/sentinel.md)
-    - Two pointers
-    - Fast & Slow Pointers
+    - [Two pointers](./linked-lists//techniques/two_pointers.md)
     - Using space
 
 ## 📁 Repository Structure
