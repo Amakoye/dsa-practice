@@ -81,7 +81,8 @@ class ListNode {
 
 1. Two Pointer Technique
    - Fast & Slow Pointers
-   - Multiple Pointers
+   - Leader/Follower Pattern
+   - Left/Right Pattern
 2. Dummy Node Usage
 
    - Handling edge cases
